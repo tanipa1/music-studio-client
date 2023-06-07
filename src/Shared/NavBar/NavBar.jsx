@@ -12,7 +12,7 @@ const NavBar = () => {
     </>
 
     return (
-        <div className='px-20'>
+        <div className='lg:px-20'>
             <div className="navbar">
             <div className="navbar-start">
                 <div className="dropdown">
@@ -26,8 +26,8 @@ const NavBar = () => {
                 <Link className="flex items-center">
                     <img className='lg:w-24 w-14' src={logo} alt="" />
                     <div>
-                    <h2 className='logo-title lg:text-3xl font-bold text-xl text-[#efcf4f]'>Music <span className='text-[#c25934]'>Studio</span></h2>
-                    <p className='font-serif'>Elevate Your Musical Talent</p>
+                    <h2 className='flex logo-title lg:text-3xl font-bold text-xl text-[#efcf4f]'>Music <span className='text-[#c25934]'>Studio</span></h2>
+                    <p className='font-serif text-xs lg:text-base '>Elevate Your Musical Talent</p>
                     </div>
                 </Link>
             </div>
