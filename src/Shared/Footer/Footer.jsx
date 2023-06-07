@@ -10,7 +10,7 @@ const Footer = () => {
                     <h2 className='text-3xl text-[#0c4b65]'>Subscribe</h2>
                 </div>
                 <div className="relative">
-                    <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" />
+                    <input type="text" placeholder="Your Email Address" className="input input-bordered w-full pr-36" />
                     <button className="btn bg-[#c25934] text-white login-btn absolute top-0 right-0 rounded-l-none">Subscribe</button>
                 </div>
             </div>
