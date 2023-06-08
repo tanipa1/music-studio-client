@@ -4,13 +4,13 @@ const Footer = () => {
     return (
         <div >
             {/* upper */}
-            <div className='relative top-16 flex justify-evenly bg-[#efcf4f] mx-48 rounded-lg py-5'>
-                <div className='text-white font-extrabold'>
-                    <p>Want to know last news?</p>
-                    <h2 className='text-3xl text-[#0c4b65]'>Subscribe</h2>
+            <div className='relative top-16 grid lg:grid-cols-2 gap-3 justify-evenly bg-[#efcf4f] mx-10 lg:mx-48 px-4 rounded-lg py-5'>
+                <div className='text-white font-extrabold text-center lg:text-left'>
+                    <p className='text-xs lg:text-lg'>Want to know last news?</p>
+                    <h2 className='lg:text-3xl text-xl text-[#0c4b65]'>Subscribe</h2>
                 </div>
-                <div className="relative">
-                    <input type="text" placeholder="Your Email Address" className="input input-bordered w-full pr-36" />
+                <div className="relative h-1/3 ">
+                    <input type="text" placeholder="Your Email Address" className="input input-bordered lg:w-full lg:pr-36" />
                     <button className="btn bg-[#c25934] text-white login-btn absolute top-0 right-0 rounded-l-none">Subscribe</button>
                 </div>
             </div>

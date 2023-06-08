@@ -5,15 +5,15 @@ import logo from '../../assets/logo.png';
 const NavBar = () => {
 
     const navItems = <>
-        <li><Link>Home</Link></li>
-        <li><Link>Instructors</Link></li>
-        <li><Link>Classes</Link></li>
-        <li><Link>Dashboard</Link></li>
+        <li className='font-bold text-base'><Link>Home</Link></li>
+        <li className='font-bold text-base'><Link>Instructors</Link></li>
+        <li className='font-bold text-base'><Link>Classes</Link></li>
+        <li className='font-bold text-base'><Link>Dashboard</Link></li>
     </>
 
     return (
-        <div className='lg:px-20'>
-            <div className="navbar">
+        <div className=''>
+            <div className="navbar lg:px-20 fixed z-10 bg-white bg-opacity-70">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -24,9 +24,9 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <Link className="flex items-center">
-                    <img className='lg:w-24 w-14' src={logo} alt="" />
+                    <img className='lg:w-20 w-14' src={logo} alt="" />
                     <div>
-                    <h2 className='flex logo-title lg:text-3xl font-bold text-xl text-[#efcf4f]'>Music <span className='text-[#c25934]'>Studio</span></h2>
+                    <h2 className='flex logo-title lg:text-3xl font-bold text-xl text-[#efcf4f]'>Music <span className='text-[#c25934] lg:text-4xl'>Studio</span></h2>
                     <p className='font-serif text-xs lg:text-base '>Elevate Your Musical Talent</p>
                     </div>
                 </Link>
