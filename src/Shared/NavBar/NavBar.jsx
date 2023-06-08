@@ -58,10 +58,10 @@ const NavBar = () => {
                 <div className="navbar-end">
                     {user?.email ?
                         <>
-                            <div data-tip={user.displayName} className="w-12 rounded-full tooltip tooltip-bottom mr-4">
+                            <div data-tip={user.displayName} className="w-12 rounded-full tooltip tooltip-bottom  lg:mr-4">
                                 <img className="rounded-full" src={user.photoURL} />
                             </div>
-                            <button className='btn bg-[#c25934] text-white login-btn' onClick={handleLogOut}>Logout </button>
+                            <button className='btn btn-xs lg:btn-md bg-[#c25934] text-white login-btn' onClick={handleLogOut}>Logout </button>
                         </>
                         : <Link to='/login' className="btn bg-[#c25934] text-white login-btn">Login</Link>}
                 </div>
