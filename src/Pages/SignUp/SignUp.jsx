@@ -1,12 +1,36 @@
 import { useForm } from "react-hook-form";
 import signUpImg from '../../assets/signUp.jpg';
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    
-    const onSubmit = data => console.log(data);
+    const {createUser, updateUserProfile} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const onSubmit = data => {
+        createUser(data.email, data.password)
+        .then(result =>{
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            updateUserProfile(data.name, data.photoURL)
+            .then(() => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: "User created successfully",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    navigate('/')
+            })               
+        })
+        .catch(error =>{
+            console.log(error);
+        })
+    }
 
     const password = watch("password");
 

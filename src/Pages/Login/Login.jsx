@@ -1,11 +1,36 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from '../../assets/login.png';
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const { signIn } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || "/";
+
+    const onSubmit = data => {
+        signIn(data.email, data.password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            Swal.fire({
+                icon: 'success',
+                title: "you're successfully logged in",
+                showConfirmButton: false,
+                timer: 1500
+            })
+            navigate(from, { replace: true });
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    };
 
     return (
         <div className="hero login-bg">
