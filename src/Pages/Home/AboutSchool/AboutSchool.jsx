@@ -14,7 +14,7 @@ const AboutSchool = () => {
                     <button className="btn bg-[#c25934] text-white login-btn border-0">View More</button>
                 </div>
                 <div>
-                    <img className=' shadow-2xl' src={about} alt="" />
+                    <img className=' shadow-2xl rounded-2xl' src={about} alt="" />
                 </div>
             </div>
         </div>

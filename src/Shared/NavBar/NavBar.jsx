@@ -24,10 +24,10 @@ const NavBar = () => {
     }
 
     const navItems = <>
-        <li className='font-bold text-base'><Link>Home</Link></li>
-        <li className='font-bold text-base'><Link>Instructors</Link></li>
-        <li className='font-bold text-base'><Link>Classes</Link></li>
-        {user?.email ? <li className='font-bold text-base'><Link>Dashboard</Link></li> : <></>}
+        <li className='font-bold text-base'><Link to='/'>Home</Link></li>
+        <li className='font-bold text-base'><Link to='/instructors'>Instructors</Link></li>
+        <li className='font-bold text-base'><Link to='/classes'>Classes</Link></li>
+        {user?.email ? <li className='font-bold text-base'><Link to='/dashboard'>Dashboard</Link></li> : <></>}
     </>
 
     return (
