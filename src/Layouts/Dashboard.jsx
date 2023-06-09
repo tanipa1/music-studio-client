@@ -1,6 +1,7 @@
 import { FaBookOpen, FaUsers } from 'react-icons/fa';
 import { NavLink, Outlet } from "react-router-dom";
-
+import logo from '../assets/logo.png';
+import saxo from '../assets/saxo.png'
 const Dashboard = () => {
     const isAdmin = true;
     const isInstructor = false;
@@ -16,17 +17,20 @@ const Dashboard = () => {
             </div>
             <div className="drawer-side bg-[#0c4b65] text-[#efcf4f]">
                 <label htmlFor="my-drawer-2" className="drawer-overlay "></label>
-                <ul className="menu p-4 w-80 h-full">
+                <ul className="menu p-4 w-80">
                     {/* Sidebar content here */}
-                    <a className=" grid grid-rows-2 ml-3 mb-10">
-                        <h3 className="uppercase text-2xl">Music <span>Studio</span></h3>
-                        <p className="uppercase">Elevate Your Musical Talent</p>
+                    <a className="flex mb-10">
+                        <img className='lg:w-16 w-14' src={logo} alt="" />
+                        <div>
+                            <h3 className="logo-title lg:text-3xl font-bold text-xl text-[#efcf4f]">Music <span className='text-[#c25934] lg:text-4xl'>Studio</span></h3>
+                            <p className="uppercase text-white">Elevate Your Musical Talent</p>
+                        </div>
                     </a>
                     {
                         isAdmin ?
                             <>
-                                <li><NavLink to='/dashboard/manageItems'><FaBookOpen /> Manage Items</NavLink></li>
-                                <li><NavLink to='/dashboard/allUsers'><FaUsers /> All Users</NavLink></li>
+                                <li className='text-xl'><NavLink to='/dashboard/manageItems'><FaBookOpen /> Manage Classes</NavLink></li>
+                                <li className='text-xl'><NavLink to='/dashboard/allUsers'><FaUsers /> Manage Users</NavLink></li>
                             </> : isInstructor ?
                                 <>
 
@@ -35,8 +39,9 @@ const Dashboard = () => {
 
                                 </>
                     }
+                    <img className='mt-20' src={saxo} alt="" />
                 </ul>
-
+                
             </div>
         </div>
     );
