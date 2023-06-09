@@ -3,10 +3,11 @@ import { NavLink, Outlet } from "react-router-dom";
 import logo from '../assets/logo.png';
 import saxo from '../assets/saxo.png'
 import useAdmin from '../hooks/useAdmin';
+import useInstructor from '../hooks/useInstructor';
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
-    const isInstructor = false;
+    const [isInstructor] = useInstructor();
 
     return (
         <div className="drawer lg:drawer-open">

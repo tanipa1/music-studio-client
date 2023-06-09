@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { FaUserShield } from "react-icons/fa";
+import { FaChalkboardTeacher, FaUserShield } from "react-icons/fa";
 import Swal from "sweetalert2";
 import 'animate.css';
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
@@ -32,6 +32,26 @@ const ManageUsers = () => {
             })
     }
 
+    const handleMakeInstructor = user => {
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an Instructor now`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+
     return (
         <div>
             <div className="overflow-x-auto shadow-2xl p-12 mx-14 w-full">
@@ -56,7 +76,8 @@ const ManageUsers = () => {
                                 <td>{user.email}</td>
                                 <td className="flex justify-center">{user.role === 'admin' ? <><button className="btn w-1/2  mx-auto text-white border-0 bg-[#c25934] btn-xs"><FaUserShield /></button></> :
                                     <button onClick={() => handleMakeAdmin(user)} className="btn text-white border-0 bg-[#c25934] btn-xs">Make Admin</button>}</td>
-                                <td><button /* onClick={() => handleMakeInstructor(user)} */ className="btn text-white border-0 bg-[#0c4b65] btn-xs">Make Instructor</button></td>
+                                <td >{user.role === 'instructor' ? <><button className="btn w-1/2  mx-auto text-white border-0 bg-[#0c4b65] btn-xs"><FaChalkboardTeacher /></button></> :
+                                    <button onClick={() => handleMakeInstructor(user)} className="btn text-white border-0 bg-[#0c4b65] btn-xs">Make Instructor</button>}</td>
                             </tr>)
                         }
                     </tbody>
