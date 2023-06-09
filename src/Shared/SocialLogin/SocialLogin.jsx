@@ -12,16 +12,31 @@ const SocialLogin = () => {
 
     const googleLogIn = () =>{
         googleSignIn()
-        .then(result =>{
+        .then(result => {
             const loggedInUser = result.user;
-            console.log(loggedInUser);
-            Swal.fire({
-                icon: 'success',
-                title: "you're successfully logged In",
-                showConfirmButton: false,
-                timer: 1500
+            
+            const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email, photo: loggedInUser.photoURL }
+            fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(saveUser)
             })
-            navigate(from, { replace: true });
+                .then(res => res.json())
+                .then(() => {
+                    navigate(from, { replace: true });
+                })
+            console.log(loggedInUser);
+            if (loggedInUser.providerId) {
+                Swal.fire({
+                    icon: 'success',
+                    title: "you're successfully logged in",
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
+
         })
         .catch(error =>{
             console.log(error);

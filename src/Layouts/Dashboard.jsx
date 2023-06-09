@@ -2,6 +2,7 @@ import { FaBookOpen, FaUsers } from 'react-icons/fa';
 import { NavLink, Outlet } from "react-router-dom";
 import logo from '../assets/logo.png';
 import saxo from '../assets/saxo.png'
+
 const Dashboard = () => {
     const isAdmin = true;
     const isInstructor = false;
