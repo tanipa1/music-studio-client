@@ -4,10 +4,16 @@ import logo from '../assets/logo.png';
 import saxo from '../assets/saxo.png'
 import useAdmin from '../hooks/useAdmin';
 import useInstructor from '../hooks/useInstructor';
+import useAuth from '../hooks/useAuth';
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
     const [isInstructor] = useInstructor();
+    const {loading} = useAuth();
+
+    if(loading){
+        return <p className="p-36 flex">Loading <span className="loading loading-dots loading-lg"></span></p>
+    }
 
     return (
         <div className="drawer lg:drawer-open">
