@@ -7,7 +7,7 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 const Home = () => {
     const {loading} = useContext(AuthContext);
     if(loading){
-        return <p className="p-36">Loading <span className="loading loading-dots loading-lg"></span></p>
+        return <p className="p-36 flex">Loading <span className="loading loading-dots loading-lg"></span></p>
     }
     return (
         <div>

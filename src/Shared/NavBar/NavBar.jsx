@@ -43,7 +43,7 @@ const NavBar = () => {
                         </ul>
                     </div>
                     <Link className="flex items-center">
-                        <img className='lg:w-20 w-14' src={logo} alt="" />
+                        <img className='animate__animated animate__heartBeat lg:w-20 w-14' src={logo} alt="" />
                         <div>
                             <h2 className='flex logo-title lg:text-3xl font-bold text-xl text-[#efcf4f]'>Music <span className='text-[#c25934] lg:text-4xl'>Studio</span></h2>
                             <p className='font-serif text-xs lg:text-base '>Elevate Your Musical Talent</p>

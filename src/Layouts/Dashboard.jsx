@@ -1,10 +1,11 @@
-import { FaBookOpen, FaUsers } from 'react-icons/fa';
+import { FaBookMedical, FaBookOpen, FaBookReader, FaCheckCircle, FaHome, FaMoneyCheckAlt, FaUsers } from 'react-icons/fa';
 import { NavLink, Outlet } from "react-router-dom";
 import logo from '../assets/logo.png';
 import saxo from '../assets/saxo.png'
+import useAdmin from '../hooks/useAdmin';
 
 const Dashboard = () => {
-    const isAdmin = true;
+    const isAdmin = useAdmin();
     const isInstructor = false;
 
     return (
@@ -27,22 +28,26 @@ const Dashboard = () => {
                             <p className="uppercase text-white">Elevate Your Musical Talent</p>
                         </div>
                     </a>
+                    <li className='text-xl'><NavLink to='/'><FaHome />Go to Home</NavLink></li>
                     {
                         isAdmin ?
                             <>
                                 <li className='text-xl'><NavLink to='/dashboard/manageItems'><FaBookOpen /> Manage Classes</NavLink></li>
                                 <li className='text-xl'><NavLink to='/dashboard/manageUsers'><FaUsers /> Manage Users</NavLink></li>
-                            </> : isInstructor ?
-                                <>
-
-                                </> :
-                                <>
-
-                                </>
+                            </> :
+                        isInstructor ?
+                            <>
+                                <li className='text-xl'><NavLink to='/dashboard/addClass'><FaBookMedical /> Add a Class</NavLink></li>
+                                <li className='text-xl'><NavLink to='/dashboard/myClasses'><FaBookReader /> My Classes</NavLink></li>           
+                            </> :
+                            <>
+                                <li className='text-xl'><NavLink to='/dashboard/selectedClasses'><FaCheckCircle /> My Selected Classes</NavLink></li>
+                                <li className='text-xl'><NavLink to='/dashboard/enrolledClasses'><FaMoneyCheckAlt /> My Enrolled Classes</NavLink></li> 
+                            </>
                     }
-                    <img className='mt-20' src={saxo} alt="" />
+                    <img className='animate__animated animate__swing mt-20' src={saxo} alt="" />
                 </ul>
-                
+
             </div>
         </div>
     );

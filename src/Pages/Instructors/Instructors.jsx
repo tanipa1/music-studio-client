@@ -12,7 +12,8 @@ const Instructors = () => {
                 <p className="text-[#c25934] text-base lg:text-xl">Our Team</p>
                 <h2 className="text-[#0c4b65] text-xl lg:text-3xl">Meet Our Instructors</h2>
             </div>
-            <div className="grid lg:grid-cols-2 lg:mx-24 ">
+            
+            <div className="animate__animated animate__jello grid lg:grid-cols-2 lg:mx-24 ">
                 {
                     instructors.map(instructor => <div key={instructor._id} className="card w-96 mb-5 mx-auto bg-base-100 shadow-2xl">
                         <figure className="px-5 pt-5">
