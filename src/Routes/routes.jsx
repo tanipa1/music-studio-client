@@ -5,34 +5,42 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import Instructors from "../Pages/Instructors/Instructors";
+import Dashboard from "../Layouts/Dashboard";
 
 const router = createBrowserRouter([
     {
         path: '*',
-        element:<ErrorPage></ErrorPage>
+        element: <ErrorPage></ErrorPage>
     },
     {
-      path: "/",
-      element: <Main></Main>,
-      children: [
-        {
-            path: '/',
-            element: <Home></Home>
-        },
-        {
-            path: '/login',
-            element: <Login></Login>
-        },
-        {
-            path: '/signUp',
-            element: <SignUp></SignUp>
-        },
-        {
-            path: '/instructors',
-            element: <Instructors></Instructors>
-        },
-      ]
+        path: "/",
+        element: <Main></Main>,
+        children: [
+            {
+                path: '/',
+                element: <Home></Home>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/signUp',
+                element: <SignUp></SignUp>
+            },
+            {
+                path: '/instructors',
+                element: <Instructors></Instructors>
+            },
+        ]
     },
-  ]);
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
+            
+        ]
+    }
+]);
 
-  export default router;
+export default router;
