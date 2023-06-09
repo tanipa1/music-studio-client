@@ -15,6 +15,7 @@ const AddClass = () => {
         const seats = form.seats.value;
         const price = form.price.value;
         const status = form.status.value;
+        const enroll = form.enroll.value;
 
         const classes = {
             class_Name: name,
@@ -23,7 +24,8 @@ const AddClass = () => {
             email,
             available_seats: seats,
             price,
-            status
+            status,
+            enroll
         }
 
         fetch('http://localhost:5000/classes', {

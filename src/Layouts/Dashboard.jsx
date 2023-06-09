@@ -39,7 +39,7 @@ const Dashboard = () => {
                     {
                         isAdmin ?
                             <>
-                                <li className='text-xl'><NavLink to='/dashboard/manageItems'><FaBookOpen /> Manage Classes</NavLink></li>
+                                <li className='text-xl'><NavLink to='/dashboard/manageClass'><FaBookOpen /> Manage Classes</NavLink></li>
                                 <li className='text-xl'><NavLink to='/dashboard/manageUsers'><FaUsers /> Manage Users</NavLink></li>
                             </> :
                         isInstructor ?
