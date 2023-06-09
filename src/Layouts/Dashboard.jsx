@@ -5,7 +5,7 @@ import saxo from '../assets/saxo.png'
 import useAdmin from '../hooks/useAdmin';
 
 const Dashboard = () => {
-    const isAdmin = useAdmin();
+    const [isAdmin] = useAdmin();
     const isInstructor = false;
 
     return (
