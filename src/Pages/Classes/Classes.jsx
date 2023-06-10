@@ -1,0 +1,49 @@
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAdmin from "../../hooks/useAdmin";
+import useInstructor from "../../hooks/useInstructor";
+
+const Classes = () => {
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
+
+    const [axiosSecure] = useAxiosSecure();
+
+    const { data: classes = [], } = useQuery(['classes'], async () => {
+        const res = await axiosSecure.get('/classes')
+        return res.data;
+    })
+
+    const courses = classes.filter((course) => course.status === 'approved');
+    console.log(courses);
+    return (
+        <div className="lg:mx-20">
+            <div className="grid lg:grid-cols-3 gap-5 pt-36">
+                {
+                    courses.map(course =>
+                        <div key={course._id} className={`card card-compact w-80 shadow-xl ${
+                            course.available_seats == 0 ? 'bg-red-700 text-white' : 'bg-base-100'
+                          }`}>
+                            <figure><img src={course.photo} alt="Shoes" /></figure>
+                            <div className="card-body">
+                                <h2 className="card-title">{course.class_Name}</h2>
+                                <p className="font-bold">Instructor: {course.instructorName}</p>
+                                <p className="font-bold">Contact: {course.email}</p>
+                                <div className="flex">
+                                    <p>Seats: {course.available_seats}</p>
+                                    <p>Price: ${course.price}</p>
+                                </div>
+                                <div className="card-actions mt-5 justify-end">
+                                    <button className="btn btn-info btn-xs"
+                                    disabled={course.available_seats == 0 || (isAdmin || isInstructor)}
+                                    >Select Course</button>
+                                </div>
+                            </div>
+                        </div>)
+                }
+            </div>
+        </div>
+    );
+};
+
+export default Classes;
