@@ -28,7 +28,7 @@ const AddClass = () => {
             enroll
         }
 
-        fetch('http://localhost:5000/classes', {
+        fetch('https://music-studio-server.vercel.app/classes', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

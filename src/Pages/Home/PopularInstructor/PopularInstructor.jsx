@@ -4,7 +4,7 @@ import { Zoom } from "react-awesome-reveal";
 
 const PopularInstructor = () => {
     const { data: instructors = [] } = useQuery(['instructors'], async () => {
-        const res = await fetch('http://localhost:5000/instructors')
+        const res = await fetch('https://music-studio-server.vercel.app/instructors')
         return res.json();
     })
     return (

@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const Instructors = () => {
     const { data: instructors = [] } = useQuery(['instructors'], async () => {
-        const res = await fetch('http://localhost:5000/users/instructor')
+        const res = await fetch('https://music-studio-server.vercel.app/users/instructor')
         return res.json();
     });
 
