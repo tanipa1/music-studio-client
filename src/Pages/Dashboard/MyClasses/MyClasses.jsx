@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const MyClasses = () => {
     const { user } = useAuth();
@@ -24,6 +25,7 @@ const MyClasses = () => {
                         <th>Status</th>
                         <th>Enrolled Student</th>
                         <th>Feedback</th>
+                        <th>Activity</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,7 +37,8 @@ const MyClasses = () => {
                             <td>{course.class_Name}</td>
                             <td>{course.status}</td> 
                             <td className="text-end">{course.enroll}</td>
-                            <td className="text-justify">{course.feedback}</td>  
+                            <td className="text-justify">{course.feedback}</td> 
+                            <Link _id={course._id} to={`/dashboard/update/${course._id}`}><button className="grid items-center justify-center btn text-white btn-xs bg-[#0c4b65]">Update</button> </Link>
                             
                         </tr>)
                     }

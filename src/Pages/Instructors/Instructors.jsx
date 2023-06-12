@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const Instructors = () => {
     const { data: instructors = [] } = useQuery(['instructors'], async () => {
-        const res = await fetch('http://localhost:5000/instructors')
+        const res = await fetch('http://localhost:5000/users/instructor')
         return res.json();
     });
 
@@ -17,12 +17,11 @@ const Instructors = () => {
                 {
                     instructors.map(instructor => <div key={instructor._id} className="card w-96 mb-5 mx-auto bg-base-100 shadow-2xl">
                         <figure className="px-5 pt-5">
-                            <img src={instructor.img} alt="Shoes" className="rounded-xl" />
+                            <img src={instructor.photo} alt="Shoes" className="rounded-xl" />
                         </figure>
                         <div className="card-body items-center text-center">
-                            <h2 className="card-title font-bold lg:text-2xl">{instructor.instructor_name}</h2>
+                            <h2 className="card-title font-bold lg:text-2xl">{instructor.name}</h2>
                             <p>{instructor.email}</p>
-                            <p>Number of Classes: {instructor.num_of_classes}</p>
                         </div>
                     </div>)
                 }
