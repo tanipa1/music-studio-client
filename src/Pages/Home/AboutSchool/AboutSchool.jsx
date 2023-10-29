@@ -1,6 +1,6 @@
 import about from '../../../assets/inner.jpg';
 import bg from '../../../assets/About-bg.jpg';
-import { Bounce } from 'react-awesome-reveal';
+
 const AboutSchool = () => {
     return (
         <div className='lg:mx-24 lg:py-8'>
@@ -15,9 +15,9 @@ const AboutSchool = () => {
                         <button className="btn bg-[#c25934] text-white login-btn border-0">View More</button>
                     </div>
                     <div>
-                        <Bounce>
+
                             <img className=' shadow-2xl rounded-2xl' src={about} alt="" />
-                        </Bounce>
+
                     </div>
                 </div>
             </div>

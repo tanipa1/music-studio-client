@@ -60,7 +60,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <input type="submit" className="btn bg-[#c25934] text-white login-btn" value="Login" />
                         </div>
-                        <p className="text-center text-[#0c4b65]">New here? <Link to='/signUp'>Create a New Account</Link></p>
+                        <p className="text-center text-[#0c4b65]">New here? <Link to='/signUp' className="text-[#c25934] underline">Create a New Account</Link></p>
                         <SocialLogin></SocialLogin>
                     </form>
                 </div>

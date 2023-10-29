@@ -17,7 +17,7 @@ const MySelectedClass = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`https://music-studio-server.vercel.app/selectedClasses/${classes._id}`, {
+                fetch(`http://localhost:5000/selectedClasses/${classes._id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
@@ -37,7 +37,7 @@ const MySelectedClass = () => {
 
     return (
         <div>
-            <h2 className="text-center mb-10 font-bold text-3xl">Total Selected Class: {selectedClass.length}</h2>
+            <h2 className="text-center mb-10 font-bold lg: text-3xl">Total Selected Class: {selectedClass.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}

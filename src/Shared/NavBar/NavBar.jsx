@@ -59,7 +59,7 @@ const NavBar = () => {
                     {user?.email ?
                         <>
                             <div data-tip={user.displayName} className="w-12 rounded-full tooltip tooltip-bottom  lg:mr-4">
-                                <img className="rounded-full" src={user.photoURL} />
+                                <img className="rounded-full h-12 w-12" src={user.photoURL} />
                             </div>
                             <button className='btn btn-xs lg:btn-md bg-[#c25934] text-white login-btn' onClick={handleLogOut}>Logout </button>
                         </>

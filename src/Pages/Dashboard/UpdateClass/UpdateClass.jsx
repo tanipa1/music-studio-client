@@ -17,7 +17,7 @@ const UpdateClass = () => {
 
         const updateClass = {price, name, photo, seats}
 
-        fetch(`https://music-studio-server.vercel.app/classes/${classes._id}`, {
+        fetch(`http://localhost:5000/classes/${classes._id}`, {
             method:'PUT',
             headers: {
                 'content-type' : 'application/json'

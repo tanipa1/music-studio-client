@@ -37,7 +37,7 @@ const Classes = () => {
                 email: user.email
             }
 
-            fetch('https://music-studio-server.vercel.app/selectedClasses', {
+            fetch('http://localhost:5000/selectedClasses', {
                 method: "POST",
                 headers: {
                     'content-type': "application/json"
@@ -76,13 +76,13 @@ const Classes = () => {
     }
     console.log(courses);
     return (
-        <div className="lg:mx-20">
+        <div className="lg:mx-20 mx-7">
             <div className="grid lg:grid-cols-3 gap-5 pt-36">
                 {
                     courses.map(course =>
                         <div key={course._id} className={`card card-compact w-80 shadow-xl ${course.available_seats == 0 ? 'bg-red-700 text-white' : 'bg-base-100'
                             }`}>
-                            <figure><img src={course.photo} alt="Shoes" /></figure>
+                            <figure><img src={course.photo} className="h-56" alt="Shoes" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{course.class_Name}</h2>
                                 <p className="font-bold">Instructor: {course.instructorName}</p>

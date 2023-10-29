@@ -19,7 +19,7 @@ const SignUp = () => {
             updateUserProfile(data.name, data.photoURL)
             .then(() =>{
                 const saveUser = {name: data.name, email: data.email, photo: data.photoURL}
-                fetch('https://music-studio-server.vercel.app/users',{
+                fetch('http://localhost:5000/users',{
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -124,7 +124,7 @@ const SignUp = () => {
                         <div className="form-control mt-6">
                             <input type="submit" className="btn bg-[#c25934] text-white login-btn" value="Sign Up" />
                         </div>
-                        <p className="text-center text-[#0c4b65]">Already have an account? <Link to='/login'>Login</Link></p>
+                        <p className="text-center text-[#0c4b65]">Already have an account? <Link to='/login' className="text-[#c25934] underline">Login</Link></p>
                         <SocialLogin></SocialLogin>
                     </form>
                 </div>

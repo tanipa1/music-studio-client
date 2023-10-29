@@ -70,7 +70,7 @@ const router = createBrowserRouter([
             {
                 path: 'update/:id',
                 element: <UpdateClass></UpdateClass>,
-                loader: ({ params }) => fetch(`https://music-studio-server.vercel.app/classes/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/classes/${params.id}`)
             },
             {
                 path: 'selectedClasses',

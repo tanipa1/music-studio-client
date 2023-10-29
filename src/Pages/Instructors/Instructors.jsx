@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const Instructors = () => {
     const { data: instructors = [] } = useQuery(['instructors'], async () => {
-        const res = await fetch('https://music-studio-server.vercel.app/users/instructor')
+        const res = await fetch('http://localhost:5000/users/instructor')
         return res.json();
     });
 
@@ -13,11 +13,11 @@ const Instructors = () => {
                 <h2 className="text-[#0c4b65] text-xl lg:text-3xl">Meet Our Instructors</h2>
             </div>
             
-            <div className="animate__animated animate__jello grid lg:grid-cols-2 lg:mx-24 ">
+            <div className="animate__animated animate__jello grid lg:grid-cols-3 lg:mx-24 ">
                 {
-                    instructors.map(instructor => <div key={instructor._id} className="card w-96 mb-5 mx-auto bg-base-100 shadow-2xl">
+                    instructors.map(instructor => <div key={instructor._id} className="card border-t-2 border-[#c25934] w-72 mb-5 mx-auto bg-base-100 shadow-2xl">
                         <figure className="px-5 pt-5">
-                            <img src={instructor.photo} alt="Shoes" className="rounded-xl" />
+                            <img src={instructor.photo} alt="Shoes" className="rounded-xl w-48 h-48" />
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title font-bold lg:text-2xl">{instructor.name}</h2>
