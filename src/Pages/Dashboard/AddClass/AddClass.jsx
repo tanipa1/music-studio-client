@@ -1,11 +1,21 @@
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
+import { useForm } from 'react-hook-form';
+
+const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 
 const AddClass = () => {
-
     const { user } = useAuth();
 
-    const handleAddClass = event => {
+    const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = data => { 
+        console.log(data);
+    }
+    console.log(errors);
+
+    /* const handleAddClass = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
@@ -48,51 +58,51 @@ const AddClass = () => {
                 }
                 form.reset();
             })
-    }
+    } */
 
     return (
         <div>
-            <form onSubmit={handleAddClass} className=" my-12 shadow-2xl px-24 py-12 rounded-xl ">
+            <form onSubmit={handleSubmit(onSubmit)} className=" my-12 shadow-2xl px-24 py-12 rounded-xl ">
                 <h2 className="text-center mb-10 font-bold text-3xl">Add a <span className="text-[#0c4b65] text-4xl">Class</span></h2>
-                <div className="flex gap-12 mb-6">
+                <div className="grid mb-5">
                     <div>
-                        <p className="font-mono">Class Name</p>
-                        <input className="input input-bordered" type="text" name="name" placeholder="Enter Class Name" />
+                        <p className="font-mono font-bold text-lg">Class Name</p>
+                        <input className="input input-bordered w-full mb-5" type="text" {...register("class_Name", { required: true })} placeholder="Enter Class Name" />
                     </div>
                     <div>
-                        <p className="font-mono">Photo URL</p>
-                        <input className="input input-bordered" type="text" name="photo" placeholder="Class Photo" />
-                    </div>
-                </div>
-                <div className="flex gap-12 mb-6">
-                    <div>
-                        <p className="font-mono">Instructor Name</p>
-                        <input className="input input-bordered" type="text" name="instructorName" defaultValue={user?.displayName} />
-                    </div>
-                    <div>
-                        <p className="font-mono">Instructor Email</p>
-                        <input className="input input-bordered" type="email" name="email" defaultValue={user?.email} />
+                        <p className="font-mono font-bold text-lg">Class Image</p>
+                        <input type="file" {...register("photo", { required: true })} className="file-input file-input-bordered w-full" />
                     </div>
                 </div>
                 <div className="flex gap-12 mb-6">
                     <div>
-                        <p className="font-mono">Available Seats</p>
-                        <input className="input input-bordered" type="text" name="seats" placeholder="Available Seats" />
+                        <p className="font-mono font-bold text-lg">Instructor Name</p>
+                        <input className="input input-bordered" type="text" {...register("instructorName", { required: true })} defaultValue={user?.displayName} />
                     </div>
                     <div>
-                        <p className="font-mono">Price</p>
-                        <input className="input input-bordered" type="text" name="price" placeholder="Price of the course" />
+                        <p className="font-mono font-bold text-lg">Instructor Email</p>
+                        <input className="input input-bordered" type="email" {...register("email", { required: true })} defaultValue={user?.email} />
+                    </div>
+                </div>
+                <div className="flex gap-12 mb-6">
+                    <div>
+                        <p className="font-mono font-bold text-lg">Available Seats</p>
+                        <input className="input input-bordered" type="text" {...register("available_seats", { required: true })} placeholder="Available Seats" />
+                    </div>
+                    <div>
+                        <p className="font-mono font-bold text-lg">Price</p>
+                        <input className="input input-bordered" type="text" {...register("price", { required: true })} placeholder="Price of the course" />
                     </div>
                 </div>
 
                 <div className="flex gap-12 mb-6">
                     <div>
-                        <p className="font-mono">Status of the Class</p>
-                        <input className="input input-bordered" type="text" name="status" disabled defaultValue="Pending" />
+                        <p className="font-mono font-bold text-lg">Status of the Class</p>
+                        <input className="input input-bordered" type="text" {...register("status", { required: true })}defaultValue="Pending" />
                     </div>
                     <div>
-                        <p className="font-mono">Enrolled Student</p>
-                        <input className="input input-bordered" type="number" name="enroll" defaultValue="0" />
+                        <p className="font-mono font-bold text-lg">Enrolled Student</p>
+                        <input className="input input-bordered" type="number" {...register("enroll", { required: true })}  />
                     </div>
                 </div>
 
