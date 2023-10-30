@@ -51,51 +51,6 @@ const AddClass = () => {
             })
     }
 
-    /* const handleAddClass = event => {
-        event.preventDefault();
-        const form = event.target;
-        const name = form.name.value;
-        const photo = form.photo.value;
-        const instructorName = form.instructorName.value;
-        const email = form.email.value;
-        const seats = form.seats.value;
-        const price = form.price.value;
-        const status = form.status.value;
-        const enroll = form.enroll.value;
-
-        const classes = {
-            class_Name: name,
-            photo,
-            instructorName,
-            email,
-            available_seats: seats,
-            price,
-            status,
-            enroll
-        }
-
-        fetch('http://localhost:5000/classes', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(classes)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.insertedId) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Class has been added',
-                        showConfirmButton: false,
-                        timer: 2000
-                    })
-                }
-                form.reset();
-            })
-    } */
-
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className=" my-12 shadow-2xl px-24 py-12 rounded-xl ">
