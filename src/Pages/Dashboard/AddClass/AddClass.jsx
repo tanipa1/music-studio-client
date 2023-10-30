@@ -26,7 +26,7 @@ const AddClass = () => {
                     const imgURL = imgResponse.data.display_url;
                     const { class_Name, instructorName, email, price, available_seats, enroll, status } = data;
 
-                    const classes = { class_Name, photo: imgURL, instructorName, email, price, available_seats, enroll, status }
+                    const classes = { class_Name, photo: imgURL, instructorName, email, price: parseFloat(price), available_seats: parseFloat(available_seats), enroll: parseFloat(enroll), status }
 
                     fetch('http://localhost:5000/classes', {
                         method: 'POST',

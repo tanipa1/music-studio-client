@@ -28,7 +28,7 @@ const UpdateClass = () => {
                     const imgURL = imgResponse.data.display_url;
                     const { class_Name, instructorName, email, price, available_seats, enroll, status } = data;
 
-                    const updateClass = { class_Name, photo: imgURL, price, available_seats, status }
+                    const updateClass = { class_Name, photo: imgURL, price: parseFloat(price), available_seats: parseFloat(available_seats), enroll: parseFloat(enroll), status }
 
                     console.log(updateClass);
 
@@ -55,38 +55,6 @@ const UpdateClass = () => {
             })
     }
 
-    /* const handleUpdateClass = event =>{
-        event.preventDefault();
-        const form = event.target;
-        const name = form.name.value;
-        const photo = form.photo.value;
-        const seats = form.seats.value;
-        const price = form.price.value;
-
-        const updateClass = {price, name, photo, seats}
-
-        fetch(`http://localhost:5000/classes/${classes._id}`, {
-            method:'PUT',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(updateClass)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.modifiedCount > 0){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Class updated successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Cool'
-                  })
-
-                  form.reset();
-            }
-        })
-    } */
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className=" my-12 shadow-2xl px-24 py-12 rounded-xl ">
@@ -129,7 +97,7 @@ const UpdateClass = () => {
                     </div>
                     <div>
                         <p className="font-mono font-bold text-lg">Enrolled Student</p>
-                        <input className="input input-bordered" type="number" {...register("enroll", { required: true })} />
+                        <input className="input input-bordered" type="text" {...register("enroll", { required: true })} />
                     </div>
                 </div>
 
