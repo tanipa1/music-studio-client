@@ -1,4 +1,5 @@
 // import Swal from "sweetalert2";
+import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import { useForm } from 'react-hook-form';
 
@@ -12,8 +13,43 @@ const AddClass = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => { 
         console.log(data);
+
+        const formData = new FormData();
+        formData.append('image', data.photo[0])
+        fetch(img_hosting_url, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgResponse => {
+                if (imgResponse.success) {
+                    const imgURL = imgResponse.data.display_url;
+                    const { class_Name, instructorName, email, price, available_seats, enroll, status } = data;
+
+                    const classes = { class_Name, photo: imgURL, instructorName, email, price, available_seats, enroll, status }
+
+                    fetch('http://localhost:5000/classes', {
+                        method: 'POST',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(classes)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.insertedId) {
+                                Swal.fire({
+                                    position: 'top-center',
+                                    icon: 'success',
+                                    title: 'Recipe has been shared',
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                })
+                            }
+                        })
+                }
+            })
     }
-    console.log(errors);
 
     /* const handleAddClass = event => {
         event.preventDefault();
