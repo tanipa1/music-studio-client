@@ -34,7 +34,7 @@ const Classes = () => {
                 instructorEmail: course.email,
                 available_seats: course.available_seats,
                 enrolled: course.enroll,
-                email: user.email
+                email: user.email,
             }
 
             fetch('http://localhost:5000/selectedClasses', {

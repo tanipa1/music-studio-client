@@ -5,8 +5,7 @@ import { Link } from "react-router-dom";
 
 const MySelectedClass = () => {
     const [selectedClass, refetch] = useSelectedClasses();
-
-    
+   
     const handleDelete = classes => {
         Swal.fire({
             title: 'Are you sure?',
@@ -80,7 +79,7 @@ const MySelectedClass = () => {
                                     <button onClick={() => handleDelete(classes)} className="btn text-[red] btn-ghost btn-lg"><FaTrashAlt /></button>
                                 </th>
                                 <th>
-                                    <Link to={`/dashboard/payment/${classes._id}`}><button className="btn text-[#0c4b65] btn-ghost btn-lg"><FaMoneyCheckAlt /> Pay</button></Link>
+                                    {classes.type? <p className="text-[#c25934] font-bold uppercase">Already Paid</p> :<Link to={`/dashboard/payment/${classes._id}`}><button className="btn text-[#0c4b65] btn-ghost btn-lg"><FaMoneyCheckAlt /> Pay</button></Link>}
                                 </th>
                             </tr>)
                         }
