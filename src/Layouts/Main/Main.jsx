@@ -4,11 +4,12 @@ import Footer from "../../Shared/Footer/Footer";
 import './Main.css';
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import MouseParticles from 'react-mouse-particles'
 
 const Main = () => {
 
-    const {loading} = useContext(AuthContext);
-    if(loading){
+    const { loading } = useContext(AuthContext);
+    if (loading) {
         return <p className="p-36 flex"><span className="text-xl font-bold">Loading </span><span className="loading loading-dots loading-lg"></span></p>
     }
     return (
@@ -16,6 +17,13 @@ const Main = () => {
             <NavBar></NavBar>
             <Outlet></Outlet>
             <Footer></Footer>
+            <MouseParticles
+                g={2.3}
+                // life={2}
+                color="random"
+                cull="MuiSvgIcon-root,MuiButton-root"
+                level={6}
+            />
         </div>
     );
 };

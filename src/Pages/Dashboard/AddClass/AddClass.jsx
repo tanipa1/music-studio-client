@@ -54,14 +54,14 @@ const AddClass = () => {
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className=" my-12 shadow-2xl px-24 py-12 rounded-xl ">
-                <h2 className="text-center mb-10 font-bold text-3xl">Add a <span className="text-[#0c4b65] text-4xl">Class</span></h2>
+                <h2 className="text-center mb-10 font-bold text-3xl">Add a <span className="text-[#0c4b65] text-4xl">Course</span></h2>
                 <div className="grid mb-5">
                     <div>
-                        <p className="font-mono font-bold text-lg">Class Name</p>
+                        <p className="font-mono font-bold text-lg">Course Name</p>
                         <input className="input input-bordered w-full mb-5" type="text" {...register("class_Name", { required: true })} placeholder="Enter Class Name" />
                     </div>
                     <div>
-                        <p className="font-mono font-bold text-lg">Class Image</p>
+                        <p className="font-mono font-bold text-lg">Course Image</p>
                         <input type="file" {...register("photo", { required: true })} className="file-input file-input-bordered w-full" />
                     </div>
                 </div>

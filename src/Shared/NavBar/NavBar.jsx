@@ -3,7 +3,6 @@ import './NavBar.css';
 import logo from '../../assets/logo.png';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
-import Swal from 'sweetalert2';
 
 const NavBar = () => {
 
@@ -11,12 +10,6 @@ const NavBar = () => {
     const handleLogOut = () => {
         logOut()
             .then(() => {
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Log Out',
-                    icon: 'error',
-                    confirmButtonText: 'Ok'
-                })
             })
             .catch(error => {
                 console.log(error);
