@@ -1,6 +1,7 @@
 import React from 'react';
 import useSelectedClasses from '../../../hooks/useSelectedClasses';
 import { Link } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const EnrolledClasses = () => {
     const [selectedClass, refetch] = useSelectedClasses();
@@ -47,7 +48,7 @@ const EnrolledClasses = () => {
                 </table>
                 
             </div>
-            <Link to='/dashboard/paymentHistory' className='w-2/3 mx-auto grid justify-center items-center btn btn-sm text-white bg-[#0c4b65]'>Click to View Payment History</Link>
+            <Link to='/dashboard/history' className='w-2/3 mx-auto grid justify-center items-center btn btn-sm text-white bg-[#0c4b65]'>Click to View Payment History</Link>
         </div>
     );
 };
