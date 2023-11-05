@@ -102,7 +102,7 @@ const UpdateClass = () => {
                 </div>
 
                 <div className="form-control w-1/2 mt-6 mx-auto">
-                    <input type="submit" className="btn text-white bg-[#c25934] font-serif text-lg rounded-3xl" value="Update Class" />
+                    <input type="submit" className="btn text-white bg-[#c25934] font-serif text-lg rounded-3xl" value="Update Course" />
                 </div>
 
             </form>

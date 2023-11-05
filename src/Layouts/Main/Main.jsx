@@ -18,8 +18,7 @@ const Main = () => {
             <Outlet></Outlet>
             <Footer></Footer>
             <MouseParticles
-                g={2.3}
-                // life={2}
+                g={1}
                 color="random"
                 cull="MuiSvgIcon-root,MuiButton-root"
                 level={6}

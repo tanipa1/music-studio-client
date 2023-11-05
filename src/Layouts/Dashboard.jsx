@@ -5,6 +5,7 @@ import saxo from '../assets/saxo.png'
 import useAdmin from '../hooks/useAdmin';
 import useInstructor from '../hooks/useInstructor';
 import useAuth from '../hooks/useAuth';
+import MouseParticles from 'react-mouse-particles'
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
@@ -39,23 +40,29 @@ const Dashboard = () => {
                     {
                         isAdmin ?
                             <>
-                                <li className='text-xl'><NavLink to='/dashboard/manageClass'><FaBookOpen /> Manage Classes</NavLink></li>
+                                <li className='text-xl'><NavLink to='/dashboard/manageClass'><FaBookOpen /> Manage Courses</NavLink></li>
                                 <li className='text-xl'><NavLink to='/dashboard/manageUsers'><FaUsers /> Manage Users</NavLink></li>
                             </> :
                         isInstructor ?
                             <>
-                                <li className='text-xl'><NavLink to='/dashboard/addClass'><FaBookMedical /> Add a Class</NavLink></li>
-                                <li className='text-xl'><NavLink to='/dashboard/myClasses'><FaBookReader /> My Classes</NavLink></li>           
+                                <li className='text-xl'><NavLink to='/dashboard/addClass'><FaBookMedical /> Add a Course</NavLink></li>
+                                <li className='text-xl'><NavLink to='/dashboard/myClasses'><FaBookReader /> My Courses</NavLink></li>           
                             </> :
                             <>
-                                <li className='text-xl'><NavLink to='/dashboard/selectedClasses'><FaCheckCircle /> My Selected Classes</NavLink></li>
-                                <li className='text-xl'><NavLink to='/dashboard/enrolledClasses'><FaMoneyCheckAlt /> My Enrolled Classes</NavLink></li> 
+                                <li className='text-xl'><NavLink to='/dashboard/selectedClasses'><FaCheckCircle /> My Selected Courses</NavLink></li>
+                                <li className='text-xl'><NavLink to='/dashboard/enrolledClasses'><FaMoneyCheckAlt /> My Enrolled Courses</NavLink></li> 
                             </>
                     }
                     <img className='animate__animated animate__swing mt-20' src={saxo} alt="" />
                 </ul>
 
             </div>
+            <MouseParticles
+                g={1}
+                color="random"
+                cull="MuiSvgIcon-root,MuiButton-root"
+                level={6}
+            />
         </div>
     );
 };

@@ -70,12 +70,12 @@ const ManageClasses = () => {
 
     return (
         <div>
-            <h2 className="animate__animated animate__bounce text-3xl text-center my-12 font-semibold">Manage Classes</h2>
+            <h2 className="animate__animated animate__bounce text-3xl text-center my-12 font-semibold">Manage Courses</h2>
             <div className="grid lg:grid-cols-2 gap-12">
                 {
                     classes.map(course =>
                         <div key={course._id} className="card card-compact w-80 bg-base-100 shadow-xl">
-                            <figure><img src={course.photo} alt="Shoes" /></figure>
+                            <figure><img className="h-[250px]" src={course.photo} alt="Courses" /></figure>
                             <div className="card-body">
                                 <h2 className="card-title">{course.class_Name}</h2>
                                 <p className="font-bold">Instructor: {course.instructorName}</p>

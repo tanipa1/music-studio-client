@@ -3,8 +3,12 @@ import './NavBar.css';
 import logo from '../../assets/logo.png';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import useAdmin from '../../hooks/useAdmin';
+import useInstructor from '../../hooks/useInstructor';
 
 const NavBar = () => {
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
 
     const { user, logOut } = useContext(AuthContext);
     const handleLogOut = () => {
@@ -20,7 +24,8 @@ const NavBar = () => {
         <li className='font-bold text-base'><Link to='/'>Home</Link></li>
         <li className='font-bold text-base'><Link to='/instructors'>Instructors</Link></li>
         <li className='font-bold text-base'><Link to='/classes'>Classes</Link></li>
-        {user?.email ? <li className='font-bold text-base'><Link to='/dashboard'>Dashboard</Link></li> : <></>}
+        {isAdmin ? <li className='font-bold text-base'><Link to='/dashboard/manageClass'>Dashboard</Link></li> : 
+        isInstructor ? <li className='font-bold text-base'><Link to='/dashboard/addClass'>Dashboard</Link></li> : user?.email? <li className='font-bold text-base'><Link to='/dashboard/selectedClasses'>Dashboard</Link></li> : <></>}
     </>
 
     return (
@@ -51,7 +56,7 @@ const NavBar = () => {
                 <div className="navbar-end">
                     {user?.email ?
                         <>
-                            <div data-tip={user.displayName} className="w-12 rounded-full tooltip tooltip-bottom  lg:mr-4">
+                            <div data-tip={user.displayName} className="w-12 h-12 rounded-full tooltip tooltip-bottom  lg:mr-4">
                                 <img className="rounded-full h-12 w-12" src={user.photoURL} />
                             </div>
                             <button className='btn btn-xs lg:btn-md bg-[#c25934] text-white login-btn' onClick={handleLogOut}>Logout </button>

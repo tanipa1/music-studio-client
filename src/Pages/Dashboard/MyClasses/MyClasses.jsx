@@ -15,7 +15,7 @@ const MyClasses = () => {
 
     return (
         <div className="overflow-x-auto w-3/4">
-            <h2 className="text-center mb-10 font-bold text-3xl">My Classes Details</h2>
+            <h2 className="text-center mb-10 font-bold text-3xl">My Added Courses</h2>
             <table className="table">
                 {/* head */}
                 <thead>

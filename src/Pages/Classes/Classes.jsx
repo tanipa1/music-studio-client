@@ -87,6 +87,7 @@ const Classes = () => {
                                 <h2 className="card-title">{course.class_Name}</h2>
                                 <p className="font-bold">Instructor: {course.instructorName}</p>
                                 <p className="font-bold">Contact: {course.email}</p>
+                                <p className="font-bold">Enrolled Student: {course.enroll}</p>
                                 <div className="flex">
                                     <p>Seats: {course.available_seats}</p>
                                     <p>Price: ${course.price}</p>
