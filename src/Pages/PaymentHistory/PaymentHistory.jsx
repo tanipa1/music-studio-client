@@ -13,7 +13,7 @@ const PaymentHistory = () => {
     console.log(history);
 
     return (
-        <div>
+        <div className='w-full'>
             <h1 className='text-center mb-10 font-bold lg: text-3xl'>Your Transaction History</h1>
             <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
                         {

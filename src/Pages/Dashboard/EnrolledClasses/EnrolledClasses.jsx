@@ -8,7 +8,7 @@ const EnrolledClasses = () => {
 
     const onlyPaidItem = selectedClass.filter(selected => selected.type === "paid");
     return (
-        <div>
+        <div className='w-full px-16'>
             <h2 className="text-center mb-10 font-bold lg: text-3xl">Total Enrolled Courses: {onlyPaidItem.length}</h2>
             <div className="overflow-x-auto mb-10">
                 <table className="table">

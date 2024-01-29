@@ -1,5 +1,5 @@
 import { FaBookMedical, FaBookOpen, FaBookReader, FaCheckCircle, FaHome, FaMoneyCheckAlt, FaUsers } from 'react-icons/fa';
-import { NavLink, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import logo from '../assets/logo.png';
 import saxo from '../assets/saxo.png'
 import useAdmin from '../hooks/useAdmin';
@@ -29,13 +29,13 @@ const Dashboard = () => {
                 <label htmlFor="my-drawer-2" className="drawer-overlay "></label>
                 <ul className="menu p-4 w-80">
                     {/* Sidebar content here */}
-                    <a className="flex mb-10">
+                    <Link to='/' className="flex mb-10">
                         <img className='lg:w-16 w-14' src={logo} alt="" />
                         <div>
                             <h3 className="logo-title lg:text-3xl font-bold text-xl text-[#efcf4f]">Music <span className='text-[#c25934] lg:text-4xl'>Studio</span></h3>
                             <p className="uppercase text-white">Elevate Your Musical Talent</p>
                         </div>
-                    </a>
+                    </Link>
                     <li className='text-xl'><NavLink to='/'><FaHome />Go to Home</NavLink></li>
                     {
                         isAdmin ?

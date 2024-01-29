@@ -4,38 +4,35 @@ import loginImg from '../../assets/login.png';
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import Swal from "sweetalert2";
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const { signIn } = useContext(AuthContext);
+    const { signIn, loading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
+
+    if (loading) {
+        return <p className="p-36 flex"><span className="text-xl font-bold">Loading </span><span className="loading loading-dots loading-lg"></span></p>
+    }
 
     const from = location.state?.from?.pathname || "/";
 
     const onSubmit = data => {
         signIn(data.email, data.password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-            Swal.fire({
-                icon: 'success',
-                title: "you're successfully logged in",
-                showConfirmButton: false,
-                timer: 1500
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate('/');
             })
-            navigate(from, { replace: true });
-        })
-        .catch(error => {
-            console.log(error);
-        })
+            .catch(error => {
+                console.log(error);
+            })
     };
 
     return (
         <div className="hero login-bg">
-            <div className="hero-content mt-36 shadow-2xl bg- w-3/4 mx-auto my-14 px-20 py-8 flex-col lg:flex-row-reverse login-box">
-                <div className="text-center lg:text-left">
+            <div className="hero-content grid grid-cols-1 lg:grid-cols-2 lg:mt-36 mt-20 shadow-2xl lg:w-3/4 w-full mx-auto lg:my-14 lg:px-20 lg:py-8 flex-col lg:flex-row-reverse login-box">
+                <div className="text-center hidden lg:flex lg:text-left">
                     <img src={loginImg} alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm">

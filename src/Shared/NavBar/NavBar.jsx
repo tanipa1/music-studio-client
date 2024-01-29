@@ -22,10 +22,11 @@ const NavBar = () => {
 
     const navItems = <>
         <li className='font-bold text-base'><Link to='/'>Home</Link></li>
-        <li className='font-bold text-base'><Link to='/instructors'>Instructors</Link></li>
-        <li className='font-bold text-base'><Link to='/classes'>Classes</Link></li>
         {isAdmin ? <li className='font-bold text-base'><Link to='/dashboard/manageClass'>Dashboard</Link></li> : 
         isInstructor ? <li className='font-bold text-base'><Link to='/dashboard/addClass'>Dashboard</Link></li> : user?.email? <li className='font-bold text-base'><Link to='/dashboard/selectedClasses'>Dashboard</Link></li> : <></>}
+        <li className='font-bold text-base'><Link to='/instructors'>Instructors</Link></li>
+        <li className='font-bold text-base'><Link to='/classes'>Courses</Link></li>
+        
     </>
 
     return (
@@ -53,7 +54,7 @@ const NavBar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <div className="navbar-end">
+                <div className="lg:navbar-end ml-24 lg:ml-0">
                     {user?.email ?
                         <>
                             <div data-tip={user.displayName} className="w-12 h-12 rounded-full tooltip tooltip-bottom  lg:mr-4">
@@ -61,7 +62,7 @@ const NavBar = () => {
                             </div>
                             <button className='btn btn-xs lg:btn-md bg-[#c25934] text-white login-btn' onClick={handleLogOut}>Logout </button>
                         </>
-                        : <Link to='/login' className="btn bg-[#c25934] text-white login-btn">Login</Link>}
+                        : <Link to='/login' className="btn btn-sm lg:btn-md bg-[#c25934] text-white login-btn">Login</Link>}
                 </div>
             </div>
         </div>

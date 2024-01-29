@@ -84,10 +84,10 @@ const SignUp = () => {
                         {/* Photo */}
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Photo URL</span>
+                                <span className="label-text">Upload your photo</span>
                             </label>
                             <input type="file" {...register("photoURL", { required: true })} className="file-input file-input-bordered w-full max-w-xs" />
-                            {errors.photoURL && <span className='text-red-600'>Photo URL is required*</span>}
+                            {errors.photoURL && <span className='text-red-600'>Photo is required*</span>}
                         </div>
                         {/* Email */}
                         <div className="form-control">

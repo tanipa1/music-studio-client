@@ -10,7 +10,7 @@ const AddClass = () => {
 
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => { 
         console.log(data);
 
@@ -41,10 +41,11 @@ const AddClass = () => {
                                 Swal.fire({
                                     position: 'top-center',
                                     icon: 'success',
-                                    title: 'Recipe has been shared',
+                                    title: 'Course has been shared',
                                     showConfirmButton: false,
                                     timer: 2000
                                 })
+                                reset();
                             }
                         })
                 }

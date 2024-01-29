@@ -50,11 +50,39 @@ const ManageUsers = () => {
                     })
                 }
             })
+    };
+
+    const handleDelete = id => {
+        Swal.fire({
+            title: 'Are you sure want delete the account?',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/users/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                `User account has been removed.`,
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
     }
 
     return (
-        <div>
-            <div className="overflow-x-auto shadow-2xl p-12 mx-14 w-full">
+        <div className="w-full mx-4">
+            <div className="overflow-x-auto  ">
                 <h3 className="animate__animated animate__bounce text-3xl text-center mb-12 font-semibold">Total Users:{users.length}</h3>
                 <table className="table w-full">
                     <thead>
@@ -78,6 +106,15 @@ const ManageUsers = () => {
                                     <button onClick={() => handleMakeAdmin(user)} className="btn text-white border-0 bg-[#c25934] btn-xs">Make Admin</button>}</td>
                                 <td >{user.role === 'instructor' ? <><button className="btn w-1/2  mx-auto text-white border-0 bg-[#0c4b65] btn-xs"><FaChalkboardTeacher /></button></> :
                                     <button onClick={() => handleMakeInstructor(user)} className="btn text-white border-0 bg-[#0c4b65] btn-xs">Make Instructor</button>}</td>
+
+                                <td>
+                                    {user.role === 'admin' ?
+                                        <></> :
+                                        <button onClick={() => handleDelete(user._id)} className="btn btn-ghost btn-xs">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="red" d="M7 21q-.825 0-1.412-.587T5 19V6H4V4h5V3h6v1h5v2h-1v13q0 .825-.587 1.413T17 21H7ZM17 6H7v13h10V6ZM9 17h2V8H9v9Zm4 0h2V8h-2v9ZM7 6v13V6Z" /></svg>
+                                        </button>
+                                    }
+                                </td>
                             </tr>)
                         }
                     </tbody>

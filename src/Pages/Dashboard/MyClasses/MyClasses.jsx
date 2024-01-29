@@ -36,9 +36,9 @@ const MyClasses = () => {
                             <th>{index + 1}</th>
                             <td>{course.class_Name}</td>
                             <td>{course.status}</td> 
-                            <td className="text-end">{course.enroll}</td>
+                            <td className="text-center">{course.enroll}</td>
                             <td className="text-justify">{course.feedback}</td> 
-                            <Link _id={course._id} to={`/dashboard/update/${course._id}`}><button className="grid items-center justify-center btn text-white btn-xs bg-[#0c4b65]">Update</button> </Link>
+                            <Link _id={course._id} to={`/dashboard/update/${course._id}`}><button className="ml-3 grid items-center justify-center btn text-white btn-xs bg-[#0c4b65]">Update</button> </Link>
                             
                         </tr>)
                     }

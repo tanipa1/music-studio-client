@@ -11,12 +11,22 @@ const useSelectedClasses = () => {
         enabled: !loading,
 
         queryFn: async () => {
-            const res = await axiosSecure(`/selectedClasses?email=${user?.email}`)
-            return res.data;
-        },
-    })
+            if (!user) {
+                return []; // or handle it appropriately
+            }
 
-    return [selectedClass, refetch]
+            try {
+                const res = await axiosSecure(`/selectedClasses?email=${user.email}`);
+                return res.data;
+            } catch (error) {
+                // Handle error, e.g., redirect to login
+                console.error("Error fetching selected classes:", error);
+                throw error;
+            }
+        },
+    });
+
+    return [selectedClass, refetch];
 };
 
 export default useSelectedClasses;
