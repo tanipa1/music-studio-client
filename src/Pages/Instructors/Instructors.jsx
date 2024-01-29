@@ -15,9 +15,9 @@ const Instructors = () => {
             
             <div className="animate__animated animate__jello grid lg:grid-cols-3 lg:mx-24 ">
                 {
-                    instructors.map(instructor => <div key={instructor._id} className="card border-t-2 border-[#c25934] w-72 mb-5 mx-auto bg-base-100 shadow-2xl">
+                    instructors.map(instructor => <div key={instructor._id} className="card border-t-2 border-[#c25934] w-96 lg:w-80 mb-5 mx-auto bg-base-100 shadow-2xl">
                         <figure className="px-5 pt-5">
-                            <img src={instructor.photo} alt="Shoes" className="rounded-xl w-48 h-48" />
+                            <img src={instructor.photo} alt="Shoes" className="rounded-xl lg:w-48 h-48" />
                         </figure>
                         <div className="card-body items-center text-center">
                             <h2 className="card-title font-bold lg:text-2xl">{instructor.name}</h2>

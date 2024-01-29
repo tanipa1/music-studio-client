@@ -66,8 +66,8 @@ const SignUp = () => {
 
     return (
         <div className="hero login-bg">
-            <div className="hero-content mt-36 shadow-2xl bg- w-3/4 mx-auto my-14 px-20 py-8 flex-col lg:flex-row login-box">
-                <div className="text-center lg:text-left">
+            <div className="hero-content lg:mt-36 mt-20 shadow-2xl lg:w-3/4 mx-auto my-14 lg:px-20 py-8 flex-col lg:flex-row login-box">
+                <div className="text-center hidden lg:flex lg:text-left">
                     <img src={signUpImg} alt="" />
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm">
