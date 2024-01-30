@@ -76,11 +76,11 @@ const Classes = () => {
     }
     console.log(courses);
     return (
-        <div className="lg:mx-20 mx-7">
-            <div className="grid lg:grid-cols-3 gap-5 pt-36">
+        <div className="lg:mx-16 mx-7">
+            <div className="grid lg:grid-cols-4 justify-center gap-5 lg:pt-36 pt-24">
                 {
                     courses.map(course =>
-                        <div key={course._id} className={`card card-compact w-80 shadow-xl ${course.available_seats == 0 ? 'bg-red-700 text-white' : 'bg-base-100'
+                        <div key={course._id} className={`card card-compact lg:w-72 w-80 shadow-xl ${course.available_seats == 0 ? 'bg-red-700 text-white' : 'bg-base-100'
                             }`}>
                             <figure><img src={course.photo} className="h-56" alt="Shoes" /></figure>
                             <div className="card-body">
