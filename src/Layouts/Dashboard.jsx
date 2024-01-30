@@ -36,7 +36,7 @@ const Dashboard = () => {
             </div>
             <div className="drawer-side lg:bg-[#0c4b65] text-[#efcf4f]">
                 <label htmlFor="my-drawer-2" className="drawer-overlay "></label>
-                <ul className="menu p-4 lg:w-80 w-60 bg-[#0c4b65]">
+                <ul className="menu p-4 h-full lg:w-80 w-60 bg-[#0c4b65]">
                     {/* Sidebar content here */}
                     <Link to='/' className="flex mb-10">
                         <img className='lg:w-16 w-14' src={logo} alt="" />

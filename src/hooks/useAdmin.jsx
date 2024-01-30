@@ -11,8 +11,18 @@ const useAdmin = () => {
         queryKey: ["isAdmin", user?.email],
         enabled: !loading && user != null, // Ensure that user is not null
         queryFn: async () => {
-            const res = await axiosSecure.get(`/users/admin/${user.email}`);
-            return res.data.admin;
+            if (!user) {
+                return false; // or handle it appropriately
+            }
+
+            try {
+                const res = await axiosSecure.get(`/users/admin/${user.email}`);
+                return res.data.admin;
+            } catch (error) {
+                // Handle error, e.g., redirect to login
+                console.error("Error fetching admin status:", error);
+                throw error;
+            }
         }
     });
 

@@ -14,37 +14,41 @@ const MyClasses = () => {
     })
 
     return (
-        <div className="overflow-x-auto w-3/4">
-            <h2 className="text-center mb-10 font-bold text-3xl">My Added Courses</h2>
-            <table className="table">
-                {/* head */}
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Class Name</th>
-                        <th>Status</th>
-                        <th>Enrolled Student</th>
-                        <th>Feedback</th>
-                        <th>Activity</th>
+        <div className="overflow-x-auto w-full mt-5">
+    <h2 className="text-center mb-6 font-bold text-xl lg:text-3xl">My Added Courses</h2>
+    <div className="mb-4 overflow-x-auto">
+        <table className="w-full table">
+            {/* head */}
+            <thead className="bg-[#c25934] text-white">
+                <tr>
+                    <th className="hidden lg:table-cell"></th>
+                    <th>Class Name</th>
+                    <th>Status</th>
+                    <th className="hidden lg:table-cell">Enrolled Student</th>
+                    <th>Feedback</th>
+                    <th>Activity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {classes.map((course, index) => (
+                    <tr key={course._id} className="hover">
+                        <td className="hidden lg:table-cell">{index + 1}</td>
+                        <td>{course.class_Name}</td>
+                        <td>{course.status}</td>
+                        <td className="lg:text-center hidden lg:table-cell">{course.enroll}</td>
+                        <td className="lg:text-justify">{course.feedback}</td>
+                        <td className="lg:flex lg:items-center">
+                            <Link _id={course._id} to={`/dashboard/update/${course._id}`} className="btn text-white btn-xs bg-[#0c4b65]">
+                                Update
+                            </Link>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    {
-                        classes.map((course, index) => <tr
-                            key={course._id}
-                            className="hover">
-                            <th>{index + 1}</th>
-                            <td>{course.class_Name}</td>
-                            <td>{course.status}</td> 
-                            <td className="text-center">{course.enroll}</td>
-                            <td className="text-justify">{course.feedback}</td> 
-                            <Link _id={course._id} to={`/dashboard/update/${course._id}`}><button className="ml-3 grid items-center justify-center btn text-white btn-xs bg-[#0c4b65]">Update</button> </Link>
-                            
-                        </tr>)
-                    }
-                </tbody>
-            </table>
-        </div>
+                ))}
+            </tbody>
+        </table>
+    </div>
+</div>
+
     );
 };
 

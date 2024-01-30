@@ -11,8 +11,18 @@ const useInstructor = () => {
         queryKey: ["isInstructor", user?.email],
         enabled: !loading && user != null, // Ensure that user is not null
         queryFn: async () => {
-            const res = await axiosSecure.get(`/users/instructor/${user.email}`);
-            return res.data.instructor;
+            if (!user) {
+                return false; // or handle it appropriately
+            }
+
+            try {
+                const res = await axiosSecure.get(`/users/instructor/${user.email}`);
+                return res.data.instructor;
+            } catch (error) {
+                // Handle error, e.g., redirect to login
+                console.error("Error fetching instructor status:", error);
+                throw error;
+            }
         }
     });
 
